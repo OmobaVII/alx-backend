@@ -17,14 +17,10 @@ class BasicCache(BaseCaching):
         """assign to the dictionary self.cache_data"""
         if key is not None or item is not None:
             self.cache_data[key] = item
-        else:
-            pass
 
     def get(self, key):
         """returns the value in self.cache_data liked to key"""
         if key is not None or key in self.cache_data.keys():
-            for k, v in self.cache_data.items():
-                if k == key:
-                    return v
+            return self.cache_data.get(key)
         else:
             return None
