@@ -9,13 +9,9 @@ from base_caching import BaseCaching
 class BasicCache(BaseCaching):
     """defines the class BasicCache which
     inherits from BaseCaching"""
-    def __init__(self):
-        """ Initiliaze"""
-        super().__init__()
-
     def put(self, key, item):
         """assign to the dictionary self.cache_data"""
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
     def get(self, key):
