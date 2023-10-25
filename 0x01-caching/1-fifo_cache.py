@@ -16,7 +16,7 @@ class FIFOCache(BaseCaching):
         """assigns to the dict self.cache_data"""
         if key is not None and item is not None:
             if len(self.cache_data) > BaseCaching.MAX_ITEMS - 1:
-                if key not in self.cache_data:
+                if key not in self.cache_data.keys():
                     first_key = next(iter(self.cache_data))
                     print("DISCARD: {}".format(first_key))
                     del self.cache_data[first_key]
