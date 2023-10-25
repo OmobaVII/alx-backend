@@ -9,7 +9,7 @@ from base_caching import BaseCaching
 class LFUCache(BaseCaching):
     """defines the class"""
     def __init__(self):
-        """initializes the class"""
+        """initializes class"""
         super().__init__()
         self.order = []
         self.freq = {}
