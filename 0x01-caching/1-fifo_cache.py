@@ -14,7 +14,7 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """assigns to the dict self.cache_data"""
-        if key is not None and item is not None:
+        if key is not None or item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 if key not in self.cache_data:
                     first_key = next(iter(self.cache_data))
