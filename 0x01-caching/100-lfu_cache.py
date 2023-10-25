@@ -19,7 +19,10 @@ class LFUCache(BaseCaching):
         if key is not None and item is not None:
             if len(self.cache_data) >= super().MAX_ITEMS:
                 min_freq = min(self.freq.values())
-                lfu_keys = [k for k, freq in self.freq.items() if freq == min_freq]
+                lfu_keys = []
+                for k, freq in self.freq.items():
+                    if freq == min_freq:
+                        lfu_keys.append(k)
                 if len(lfu_keys) > 1:
                     lru_key = self.order.pop(0)
                     if lru_key in lfu_keys:
