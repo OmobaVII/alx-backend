@@ -41,6 +41,7 @@ def get_locale() -> str:
     else:
         return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 def get_user() -> Union[dict, None]:
     """ Returns the user dict if the ID is found """
     if request.args.get('login_as'):
@@ -49,6 +50,7 @@ def get_user() -> Union[dict, None]:
             return users.get(user)
         else:
             return None
+
 
 @app.before_request
 def before_request():
