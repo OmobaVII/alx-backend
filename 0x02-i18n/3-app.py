@@ -24,8 +24,7 @@ def index():
 
 @babel.localeselector
 def get_locale():
-    """ determines the best match for the user's
-    preferred languages """
+    """ determines the best match for the user's languages """
     return request.accept_languages.best_match(app.config.languages)
 
 
