@@ -13,17 +13,17 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app.config.from_object(Config)
+app.config.from_object('3-app.Config')
 
 
 @app.route('/', strict_slashes=False)
-def index():
+def index() -> str:
     """ returns 3-index.html page """
     return render_template('3-index.html')
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """ determines the best match for the users languages """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
