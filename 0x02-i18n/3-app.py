@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ This module instantiate Babel object in the app """
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babelex import Babel
 app = Flask(__name__)
 babel = Babel(app)
 
@@ -18,15 +18,15 @@ app.config.from_object(Config)
 
 @app.route('/', strict_slashes=False)
 def index():
-    """ returns 0-index.html page """
+    """ returns 3-index.html page """
     return render_template('3-index.html')
 
 
 @babel.localeselector
 def get_locale():
-    """ determines the best match for the user's languages """
-    return request.accept_languages.best_match(app.config.languages)
+    """ determines the best match for the users languages """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
